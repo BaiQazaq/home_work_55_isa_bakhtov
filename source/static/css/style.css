@@ -1,5 +1,22 @@
-body{
-    font-family: Arial sans-serif;
-    background: rgb(91, 186, 230);
-    color: rgb(44, 229, 93);
+.form {
+    width: 350px;
+    margin-top: 20px;
+}
+
+.form_row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.input_text, .status {
+    width: 250px;
+    height: 25px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
 }

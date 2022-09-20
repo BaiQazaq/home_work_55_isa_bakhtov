@@ -12,20 +12,24 @@
         {% csrf_token %}
         <div class="form">
             <div class="form_row">
-            <label for="description">Description: </label>
-            <input id="description" name="description" type="text">
-        </div>
-        <div class="form_row">
-            <label for="status">Text data: </label>
-            <textarea name="status" id="status" cols="30" rows="10"></textarea>
-        </div>
-        <div class="form_row">
-            <label for="deadline">Author: </label>
-            <input id="deadline" name="deadline" type="text">
-        </div>
-        <div class="from_row">
-            <input type="submit">
-        </div>
+                <label for="description">Description: </label>
+                <input class="input_text" id="description" name="description" type="text">
+            </div>
+            <div class="form_row">
+                <span>Status:</span>
+                <select name="select" class="status">
+                    <option value="new">New</option>
+                    <option value="inProgress">In progress</option>
+                    <option value="done">Done</option>
+                </select>
+            </div>
+            <div class="form_row">
+                <label for="deadline">Deadline: </label>
+                <input class="input_text" id="deadline" name="deadline" type="text">
+            </div>
+            <div class="from_row">
+                <input type="submit">
+            </div>
         </div>
     </form>
 </body>

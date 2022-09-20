@@ -8,12 +8,13 @@
 </head>
 <body>
     <h1>Tasks</h1>
-<a href="/tasks/add">Add tasks</a>
-{% for task in tasks %}
-    <h2>Title - {{ task.description }}</h2>
-    <p>Author - {{ task.status }}</p>
-    <p><a href="/task/?pk={{ task.pk }}">Подробнее</a></p>
-{% endfor %}
-
+    <a href="/tasks/add">Add tasks</a>
+    {% for task in tasks %}
+    <div class="wrapper">
+        <h4>Description - {{ task.description }}</h2>
+        <p>Status - {{ task.status }}</p>
+        <p><a href="/task/?pk={{ task.pk }}">Подробнее</a></p>
+    </div>
+    {% endfor %}
 </body>
 </html>
