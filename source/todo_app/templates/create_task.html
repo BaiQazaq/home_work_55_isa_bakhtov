@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create task</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <h1>New task</h1>
+    <form action="/tasks/add/" method="POST">
+        {% csrf_token %}
+        <div class="form">
+            <div class="form_row">
+            <label for="description">Description: </label>
+            <input id="description" name="description" type="text">
+        </div>
+        <div class="form_row">
+            <label for="status">Text data: </label>
+            <textarea name="status" id="status" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form_row">
+            <label for="deadline">Author: </label>
+            <input id="deadline" name="deadline" type="text">
+        </div>
+        <div class="from_row">
+            <input type="submit">
+        </div>
+        </div>
+    </form>
+</body>
+</html>
