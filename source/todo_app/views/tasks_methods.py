@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from todo_app.models import Task
 
 
@@ -12,9 +12,8 @@ def add_view(request):
         'deadline': request.POST.get('deadline')
     }
     task = Task.objects.create(**task_data)
-    return redirect(f"/task/?pk={task.pk}")
+    return redirect('show', pk=task.pk)
 
-def detail_view(request):
-    pk = request.GET.get('pk')
-    task = Task.objects.get(pk=pk)
+def detail_view(request, pk):
+    task = get_object_or_404(Task, pk=pk)
     return render(request, 'task.html', context={'task': task})
