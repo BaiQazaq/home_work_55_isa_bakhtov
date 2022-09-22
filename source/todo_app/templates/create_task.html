@@ -1,13 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create task</title>
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-</head>
-<body>
-    <h1>New task</h1>
+{% extends 'index.html' %}
+
+{% block title %}
+    Create task
+{% endblock %}
+{% block header %}
+<h1>New task</h1>
+{% endblock %}
+{% block content %}
     <form action="/tasks/add/" method="POST">
         {% csrf_token %}
         <div class="form">
@@ -32,5 +31,7 @@
             </div>
         </div>
     </form>
-</body>
-</html>
+{% endblock %}
+{% block link %}
+    <a href="{% url 'base' %}">Main page</a>
+{% endblock %}
