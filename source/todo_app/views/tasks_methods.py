@@ -17,3 +17,31 @@ def add_view(request):
 def detail_view(request, pk):
     task = get_object_or_404(Task, pk=pk)
     return render(request, 'task.html', context={'task': task})
+
+def update_view(request, pk):
+    errors = {}
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == "POST":
+        if not request.POST.get('title'):
+            errors['title'] = 'Title field is required'
+        task.title = request.POST.get('title')
+        task.description = request.POST.get('description')
+        task.deadline =request.POST.get('deadline')
+        task.status =request.POST.get('status')
+        if errors:
+            return render(
+        request,
+        'update_task.html',
+        context={
+            'task': task, 
+            'errors': errors
+            })
+        task.save()
+        return redirect('show', pk=task.pk)
+    return render(
+        request,
+        'update_task.html',
+        context={
+            'task': task, 
+            'errors': errors
+            })

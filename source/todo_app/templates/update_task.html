@@ -1,19 +1,20 @@
 {% extends 'index.html' %}
 
 {% block title %}
-    Create task
+    Update task
 {% endblock %}
 {% block header %}
-<h1>New task</h1>
+<h1>Updating task</h1>
 {% endblock %}
 {% block content %}
-    <form action="{% url 'creation' %}" method="POST">
+    <form action="{% url 'update' task.pk %}" method="POST">
         {% csrf_token %}
         <div class="form">
-            {% include 'partial/task_form.html' with button_text='Create'%}
+            {% include 'partial/task_form.html' with button_text='Update'%}
         </div>
     </form>
 {% endblock %}
 {% block link %}
     <a href="{% url 'base' %}">Main page</a>
+    <a href="{% url 'creation' %}">Add task</a>
 {% endblock %}
